@@ -39,6 +39,10 @@ a{
   border: 0;
   font-weight: 500;
 }
+.btn:hover {
+  color: #fff;
+  background-color: #bc3c05;
+}
 .swap_btn {
   width: 100%;
 }
