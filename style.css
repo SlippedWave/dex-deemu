@@ -1,7 +1,8 @@
-.{
-font-family: Roboto;
+* {
+  font-family: Roboto;
 }
-#window{
+
+#window {
   margin-top: 50px;
   background-color: #000;
   color: #FAFAFA;
@@ -9,11 +10,13 @@ font-family: Roboto;
   border-radius: 20px;
   box-shadow: 0 0 5px black;
 }
+
 .swapbox_select {
   width: 50%;
   float: left;
 }
-.swapbox{
+
+.swapbox {
   overflow: auto;
   margin: 20px 0;
   padding: 20px;
@@ -21,23 +24,29 @@ font-family: Roboto;
   border-radius: 20px;
   border: 1px solid #565656;
 }
-.token_select{
-  padding:5px 0;
+
+.token_select {
+  padding: 5px 0;
 }
-.token_image{
+
+.token_image {
   width: 40px;
 }
-a{
+
+a {
   font-weight: 500;
   color: #fff;
 }
-a:hover{
-  color:#fff;
+
+a:hover {
+  color: #fff;
 }
+
 .navbar {
   color: #fff;
   background-color: #F85C1C;
 }
+
 .btn {
   color: #fff;
   background-color: #F85C1C;
@@ -45,10 +54,12 @@ a:hover{
   border: 0;
   font-weight: 500;
 }
+
 .btn:hover {
   color: #fff;
   background-color: #bc3c05;
 }
+
 .swap_btn {
   width: 100%;
 }
