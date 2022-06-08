@@ -1,7 +1,7 @@
 #window{
   margin-top: 50px;
   background-color: #000;
-  color: #fff;
+  color: #FAFAFA;
   padding: 15px;
   border-radius: 20px;
   box-shadow: 0 0 5px black;
@@ -21,22 +21,24 @@
 .token_select{
   padding:5px 0;
 }
-.token_select:hover{
-  background-color: #464646;
-  cursor: pointer;
-  
-}
-.token_list_img, .token_image{
+.token_image{
   width: 40px;
 }
-.modal-body{
-  height: 600px;
-  overflow: scroll;
+a{
+  font-weight: 500;
+  color: #fff;
 }
-.token_row{
-  padding: 5px 10px;
+.navbar {
+  color: #fff;
+  background-color: #F85C1C;
 }
-.token_row:hover{
-  background-color: #e4e4e4;
-  cursor: pointer;
+.btn {
+  color: #fff;
+  background-color: #F85C1C;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  border: 0;
+  font-weight: 500;
+}
+.swap_btn {
+  width: 100%;
 }
