@@ -28,6 +28,9 @@ a{
   font-weight: 500;
   color: #fff;
 }
+a:hover{
+  color:#fff;
+}
 .navbar {
   color: #fff;
   background-color: #F85C1C;

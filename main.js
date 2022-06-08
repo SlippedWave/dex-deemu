@@ -1,7 +1,7 @@
 const serverUrl = "https://lk9bpdyn1vsq.usemoralis.com:2053/server"; //Server url from moralis.io
 const appId = "1lcc8oJfE3QD5Bq0GzDEliMLgfR4Eb2XrlIxgXt5"; // Application id from moralis.io
 
-let deemuAddress = '0xbb0Aca21AE4860Ab9e52C36D5a571A431280E6cA' //DMU oficial  
+let deemuAddress = '0xbA2aE424d960c26247Dd6c32edC70B295c744C43' //DMU oficial  
 let wnbAddress = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c' //WBNB
 
 async function init() {
