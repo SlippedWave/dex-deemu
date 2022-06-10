@@ -1,3 +1,1 @@
 #basura
-
-# BASURA GANG
