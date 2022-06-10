@@ -38,7 +38,26 @@ async function getQuote() {
   console.log(quote);
   document.getElementById("gas_estimate").innerHTML = quote.estimatedGas;
   document.getElementById("to_amount").value = quote.toTokenAmount / 10 ** quote.toToken.decimals;
-}
+}  
+
+async function getQuoteTo() {
+  if (!document.getElementById("to_amount").value) return;
+
+  let auxValue = 0.000001 * 10 ** 18; //Fixed value to do calculation
+  let amountDMU = Number(document.getElementById("to_amount").value); //Get inserted token amount
+
+  const quote = await Moralis.Plugins.oneInch.quote({
+    chain: "bsc", // The blockchain you want to use (eth/bsc/polygon)
+    fromTokenAddress: wbnbAddress, // The token you want to swap
+    toTokenAddress: deemuAddress, // The token you want to receive
+    amount: auxValue,
+  });
+
+  console.log(quote);
+  document.getElementById("gas_estimate").innerHTML = quote.estimatedGas;
+  let estimateDMU = quote.toTokenAmount / 10 ** quote.toToken.decimals;
+  document.getElementById("from_amount").value = (amountDMU * 0.000001 / estimateDMU).toFixed(8); 
+} 
 
 async function trySwap() {
   let address = walletAddress;
@@ -81,4 +100,5 @@ function doSwap(userAddress, amount) {
 init();
 document.getElementById("login_button").onclick = login;
 document.getElementById("from_amount").onblur = getQuote;
+document.getElementById("to_amount").onblur = getQuoteTo;
 document.getElementById("swap_button").onclick = trySwap;
