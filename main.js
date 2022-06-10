@@ -23,6 +23,22 @@ async function login() {
   }
 }
 
+async function getTxDetails() 
+{
+//Get token price on PancakeSwap v2 BSC
+const options = {
+  address: wbnbAddress, //using wbnb to get price estability
+  chain: "bsc",
+  exchange: "PancakeSwapv2",
+};
+const price = await Moralis.Web3API.token.getTokenPrice(options);
+
+let transactionValue = document.getElementById("from_amount").value * price.usdPrice; //DMU amount * Price.
+
+document.getElementById("token_price").innerHTML = transactionValue.toFixed(6);
+}
+
+
 async function getQuote() {
   if (!document.getElementById("from_amount").value) return;
 
@@ -38,7 +54,10 @@ async function getQuote() {
   console.log(quote);
   document.getElementById("gas_estimate").innerHTML = quote.estimatedGas;
   document.getElementById("to_amount").value = quote.toTokenAmount / 10 ** quote.toToken.decimals;
+  getTxDetails();
 }  
+
+
 
 async function getQuoteTo() {
   if (!document.getElementById("to_amount").value) return;
@@ -57,7 +76,11 @@ async function getQuoteTo() {
   document.getElementById("gas_estimate").innerHTML = quote.estimatedGas;
   let estimateDMU = quote.toTokenAmount / 10 ** quote.toToken.decimals;
   document.getElementById("from_amount").value = (amountDMU * 0.000001 / estimateDMU).toFixed(8); 
+  getTxDetails();
 } 
+
+
+
 
 async function trySwap() {
   let address = walletAddress;
@@ -102,3 +125,4 @@ document.getElementById("login_button").onclick = login;
 document.getElementById("from_amount").onblur = getQuote;
 document.getElementById("to_amount").onblur = getQuoteTo;
 document.getElementById("swap_button").onclick = trySwap;
+getTxDetails(); 
