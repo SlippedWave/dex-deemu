@@ -74,3 +74,35 @@ a:hover {
 .swap_btn {
   width: 100%;
 }
+
+.info{
+  display: block;
+  float:center;
+  margin-left: 0;
+}
+.title{
+  float: right;
+}
+.title p{text-align: right;} 
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td{
+  padding: 5px 0 5px 15px;
+}
+
+.tabletitle{
+  padding: 5px;
+  font-size: .5em;
+}
+
+.percentage{
+  padding-left: 20%;
+}
+
+.divisor{
+  border-bottom: 1px solid white;
+}

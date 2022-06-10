@@ -23,6 +23,31 @@ async function login() {
   }
 }
 
+async function getTxDetails() 
+{
+//Get token price on PancakeSwap v2 BSC
+const options = {
+  address: wbnbAddress, //using wbnb to get price estability
+  chain: "bsc",
+  exchange: "PancakeSwapv2",
+};
+const price = await Moralis.Web3API.token.getTokenPrice(options);
+
+let tokenAmount = document.getElementById("to_amount").value;
+let wnbnAmount = document.getElementById("from_amount").value;
+let transactionValue = wnbnAmount * price.usdPrice; //DMU amount * Price.
+
+
+document.getElementById("liquidity_fee").innerHTML = (tokenAmount * 0.02).toFixed(0);
+document.getElementById("develop_fee").innerHTML = (tokenAmount * 0.03).toFixed(0);
+document.getElementById("reflex_fee").innerHTML = (tokenAmount * 0.05).toFixed(0);
+document.getElementById("buy_amount").innerHTML = (tokenAmount * 1).toFixed(0);
+document.getElementById("total_fee").innerHTML = (tokenAmount * 0.10).toFixed(0);
+document.getElementById("total_amount").innerHTML = (tokenAmount -= tokenAmount * 0.10).toFixed(0);
+document.getElementById("usd_estimate").innerHTML = transactionValue.toFixed(6);
+}
+
+
 async function getQuote() {
   if (!document.getElementById("from_amount").value) return;
 
@@ -36,9 +61,12 @@ async function getQuote() {
   });
 
   console.log(quote);
-  document.getElementById("gas_estimate").innerHTML = quote.estimatedGas;
+  document.getElementById("gas_estimate").innerHTML = (quote.estimatedGas * 4 / 10 ** 9).toFixed(6);
   document.getElementById("to_amount").value = quote.toTokenAmount / 10 ** quote.toToken.decimals;
+  getTxDetails();
 }  
+
+
 
 async function getQuoteTo() {
   if (!document.getElementById("to_amount").value) return;
@@ -54,10 +82,14 @@ async function getQuoteTo() {
   });
 
   console.log(quote);
-  document.getElementById("gas_estimate").innerHTML = quote.estimatedGas;
+  document.getElementById("gas_estimate").innerHTML = (quote.estimatedGas * 4 / 10 ** 9).toFixed(6);
   let estimateDMU = quote.toTokenAmount / 10 ** quote.toToken.decimals;
   document.getElementById("from_amount").value = (amountDMU * 0.000001 / estimateDMU).toFixed(8); 
+  getTxDetails();
 } 
+
+
+
 
 async function trySwap() {
   let address = walletAddress;
@@ -102,3 +134,4 @@ document.getElementById("login_button").onclick = login;
 document.getElementById("from_amount").onblur = getQuote;
 document.getElementById("to_amount").onblur = getQuoteTo;
 document.getElementById("swap_button").onclick = trySwap;
+getTxDetails(); 
