@@ -61,7 +61,7 @@ async function getQuote() {
   });
 
   console.log(quote);
-  document.getElementById("gas_estimate").innerHTML = quote.estimatedGas;
+  document.getElementById("gas_estimate").innerHTML = (quote.estimatedGas * 4 / 10 ** 9).toFixed(6);
   document.getElementById("to_amount").value = quote.toTokenAmount / 10 ** quote.toToken.decimals;
   getTxDetails();
 }  
@@ -82,7 +82,7 @@ async function getQuoteTo() {
   });
 
   console.log(quote);
-  document.getElementById("gas_estimate").innerHTML = quote.estimatedGas;
+  document.getElementById("gas_estimate").innerHTML = (quote.estimatedGas * 4 / 10 ** 9).toFixed(6);
   let estimateDMU = quote.toTokenAmount / 10 ** quote.toToken.decimals;
   document.getElementById("from_amount").value = (amountDMU * 0.000001 / estimateDMU).toFixed(8); 
   getTxDetails();
