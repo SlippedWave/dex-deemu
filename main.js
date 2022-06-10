@@ -33,9 +33,18 @@ const options = {
 };
 const price = await Moralis.Web3API.token.getTokenPrice(options);
 
-let transactionValue = document.getElementById("from_amount").value * price.usdPrice; //DMU amount * Price.
+let tokenAmount = document.getElementById("to_amount").value;
+let wnbnAmount = document.getElementById("from_amount").value;
+let transactionValue = wnbnAmount * price.usdPrice; //DMU amount * Price.
 
-document.getElementById("token_price").innerHTML = transactionValue.toFixed(6);
+
+document.getElementById("liquidity_fee").innerHTML = (tokenAmount * 0.02).toFixed(0);
+document.getElementById("develop_fee").innerHTML = (tokenAmount * 0.03).toFixed(0);
+document.getElementById("reflex_fee").innerHTML = (tokenAmount * 0.05).toFixed(0);
+document.getElementById("buy_amount").innerHTML = (tokenAmount * 1).toFixed(0);
+document.getElementById("total_fee").innerHTML = (tokenAmount * 0.10).toFixed(0);
+document.getElementById("total_amount").innerHTML = (tokenAmount -= tokenAmount * 0.10).toFixed(0);
+document.getElementById("usd_estimate").innerHTML = transactionValue.toFixed(6);
 }
 
 

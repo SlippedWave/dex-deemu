@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row">
             <div class="col col-md-6 offset-md-3" id="window">
-                <h4>WBNB a DMU</h4>
+               <center><h4>WBNB a DMU</h4></center> 
                 <div id="form">
                     <div class="swapbox">
                         <div class="swapbox_select token_select" id="from_token_select">
@@ -43,7 +43,67 @@
                         </div>
                     </div>
                     <div>Cuota estimada: <span id="gas_estimate"></span> BNB</div>
-                    <div>Estimado en USD: <span id="token_price"></span> USD</div>
+                    <hr style="width:100%", size="3", color=white>
+                    <div id="table">
+						<table>
+							<tr class="tabletitle">
+                                <td class="item"><h5>Concepto:</h5></td>
+								<td class="Hours"><h5>Comision:</h5></td>
+								<td class="Rate"><h5>Cantidad:</h5></td>
+							</tr>
+
+                            <tr class="service">
+                                <td class="tableitem"><p class="itemtext">Liquidez</p></td>
+								<td class="tableitem"><p class="percentage">2%</p></td>
+								<td class="tableitem"><p class="itemtext"> <span id="liquidity_fee"></span> DMU</td></p>
+							</tr>
+
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Desarollo</p></td>
+								<td class="tableitem"><p class="percentage">3%</p></td>
+								<td class="tableitem"><p class="itemtext"> <span id="develop_fee"></span> DMU</td></p>
+							</tr>
+
+							<tr class="service">
+                                <td class="divisor"><p class="itemtext">Redistribución:</p></td>
+								<td class="divisor"><p class="percentage">5%</p></td>
+								<td class="divisor"><p class="itemtext"> <span id="reflex_fee"></span> DMU</td></p>
+							</tr>
+                            
+                            <tr>
+                                <td></td>
+                            </tr>
+ 
+                            <tr class="tabletitle">
+								<td class=""></td>
+								<td class=""><h5>Subtotal</h5></td>
+								<td class="">  <h5><span id="buy_amount"> = </span> DMU</h5></td>
+                            </tr>
+
+
+                            <tr class="tabletitle">
+								<td class=""></td>
+								<td class=""><h5>Comisiones</h5></td>
+								<td class=""><h5>  -<span id="total_fee"></span> DMU</h5></td>
+							</tr>
+
+
+
+							<tr class="tabletitle">
+                                <td></td>
+								<td class="Rate"><h5>Total</h5></td>
+								<td class="payment"><h5> ≈ <span id="total_amount"></span> DMU</h5></td>
+							</tr>
+
+                            
+							<tr class="tabletitle">
+								<td></td>
+                                <td></td>
+								<td class="payment"><h5> ≈ <span id="usd_estimate"> $</span> USD</h5></td>
+							</tr>
+
+						</table>
+					</div><!--End Table-->
                     <button disabled class="btn btn-large swap_btn" id="swap_button">
                         Cambiar
                     </button>
